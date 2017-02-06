@@ -1,0 +1,14 @@
+C:\Develop\Freelas\DependecyInjectionProject\Migration\bin\Debug\Migration.dll.config
+C:\Develop\Freelas\DependecyInjectionProject\Migration\bin\Debug\Migration.dll
+C:\Develop\Freelas\DependecyInjectionProject\Migration\bin\Debug\Migration.pdb
+C:\Develop\Freelas\DependecyInjectionProject\Migration\bin\Debug\EntityFramework.dll
+C:\Develop\Freelas\DependecyInjectionProject\Migration\bin\Debug\EntityFramework.SqlServer.dll
+C:\Develop\Freelas\DependecyInjectionProject\Migration\bin\Debug\Model.dll
+C:\Develop\Freelas\DependecyInjectionProject\Migration\bin\Debug\Model.pdb
+C:\Develop\Freelas\DependecyInjectionProject\Migration\bin\Debug\EntityFramework.xml
+C:\Develop\Freelas\DependecyInjectionProject\Migration\bin\Debug\EntityFramework.SqlServer.xml
+C:\Develop\Freelas\DependecyInjectionProject\Migration\obj\Debug\Migration.csprojResolveAssemblyReference.cache
+C:\Develop\Freelas\DependecyInjectionProject\Migration\obj\Debug\Migration.dll
+C:\Develop\Freelas\DependecyInjectionProject\Migration\obj\Debug\Migration.pdb
+C:\Develop\Freelas\DependecyInjectionProject\Migration\obj\Debug\Migration.Migrations.inicializedatabase.resources
+C:\Develop\Freelas\DependecyInjectionProject\Migration\obj\Debug\Migration.csproj.GenerateResource.Cache
