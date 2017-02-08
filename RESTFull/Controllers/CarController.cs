@@ -21,9 +21,9 @@ namespace RESTFull.Controllers
 
         [AcceptVerbs("GET")]
         [Route("{id}")]
-        public Car Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return _carRepository.Get(id);
+            return Ok(_carRepository.Get(id));
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Model;
 using RESTFull.Controllers;
+using System.Net.Http.Formatting;
 
 namespace RESTFull
 {
@@ -19,6 +20,8 @@ namespace RESTFull
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
+            GlobalConfiguration.Configuration.Formatters.Clear();
+            GlobalConfiguration.Configuration.Formatters.Add(new JsonMediaTypeFormatter());
         }
     }
 }
