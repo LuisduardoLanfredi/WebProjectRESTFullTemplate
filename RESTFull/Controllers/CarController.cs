@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Data;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,18 @@ namespace RESTFull.Controllers
     [RoutePrefix("api/car")]
     public class CarController : ApiController
     {
+        private IRepository<Car> _carRepository;
+
+        public CarController(IRepository<Car> carRepository)
+        {
+            _carRepository = carRepository;
+        }
+
         [AcceptVerbs("GET")]
         [Route("{id}")]
         public Car Get(int id)
         {
-            return null;
+            return _carRepository.Get(id);
         }
     }
 }

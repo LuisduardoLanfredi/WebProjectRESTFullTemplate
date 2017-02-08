@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         T Insert(T data);
         T Get(int id);

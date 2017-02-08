@@ -1,5 +1,10 @@
 Data/bin/
+Data/obj/
 DataTest/bin/
+DataTest/obj/
 Migration/bin/
+Migration/obj/
 Model/bin/
+Model/obj/
 RESTFull/bin/
+RESTFull/obj/
