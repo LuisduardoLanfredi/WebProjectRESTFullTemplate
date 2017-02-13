@@ -4,13 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
 
 namespace Data
 {
-    public class CarRepository : IRepository<Car>
+    public class CarRepository : IRepository<Car, CarCriteria>
     {
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["WebProjectRESTFullTemplateConnectionString"].ConnectionString;
 
@@ -40,9 +38,36 @@ namespace Data
             return createdCar;
         }
 
-        public IEnumerable<Car> List()
+        public IEnumerable<Car> List(CarCriteria criteria, string[] fields)
         {
-            throw new NotImplementedException();
+            var builder = new SqlBuilder();
+
+            var template = builder.AddTemplate("SELECT /**select**/ FROM Cars /**where**/");
+
+            if (fields.Any())
+                builder.Select(string.Join(", ", fields));
+            else
+                builder.Select("Id");
+
+            if(criteria.Id.Any())
+            {
+                builder.Where("Id IN @Id", new { @Id = criteria.Id});
+            }
+
+            using (var conn = new SqlConnection(_connectionString))
+            {
+                return conn.Query<Car>(template.RawSql, template.Parameters);
+            }
+        }
+
+        public Car Delete(int id)
+        {
+            var sql = "DELETE From Cars OUTPUT DELETED.* WHERE Id = @Id";
+
+            using (var conn = new SqlConnection(_connectionString))
+            {
+                return conn.Query<Car>(sql, new { @Id = id }).SingleOrDefault();
+            }
         }
     }
 }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public interface IRepository<T>
+    public interface IRepository<T, P>
     {
         T Insert(T data);
         T Get(int id);
-        IEnumerable<T> List();
+        IEnumerable<T> List(P criteria, string[] fields);
     }
 }
