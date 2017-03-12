@@ -30,7 +30,7 @@ namespace RESTFull.DependencyResolution {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
                 });
-            For<IRepository<Car>>().Use<CarRepository>();
+            For<IRepository<Car, CarCriteria>>().Use<CarRepository>();
         }
 
         #endregion

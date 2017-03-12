@@ -8,4 +8,6 @@ Model/bin/*
 Model/obj/*
 RESTFull/bin/*
 RESTFull/obj/*
+TextResource/bin/*
+TextResource/obj/*
 packages/*

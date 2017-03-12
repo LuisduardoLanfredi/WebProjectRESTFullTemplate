@@ -260,6 +260,10 @@
       <Project>{99e944dc-ef4a-4473-9159-2263fb128f09}</Project>
       <Name>Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TextResource\TextResource.csproj">
+      <Project>{8745696a-7b12-45b0-aab0-cef511772750}</Project>
+      <Name>TextResource</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

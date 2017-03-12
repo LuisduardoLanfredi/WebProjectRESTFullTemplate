@@ -1,20 +1,16 @@
 ﻿using Data;
 using Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using TextResource;
 
 namespace RESTFull.Controllers
 {
     [RoutePrefix("api/car")]
     public class CarController : ApiController
     {
-        private IRepository<Car> _carRepository;
+        private IRepository<Car, CarCriteria> _carRepository;
 
-        public CarController(IRepository<Car> carRepository)
+        public CarController(IRepository<Car, CarCriteria> carRepository)
         {
             _carRepository = carRepository;
         }
@@ -24,7 +20,7 @@ namespace RESTFull.Controllers
         public IHttpActionResult Get(int id)
         {
             if (id == 0)
-                return BadRequest("Invalid parameter");
+                return BadRequest(GeneralTextResource.InvalidParameter.ToString());
 
             var result = _carRepository.Get(id);
 
@@ -35,11 +31,11 @@ namespace RESTFull.Controllers
         }
 
         [AcceptVerbs("POST")]
-        [Route("car")]
+        [Route("")]
         public IHttpActionResult Create(Car car)
         {
             if (car == null)
-                return BadRequest("Invalid parameter");
+                return BadRequest(GeneralTextResource.InvalidParameter.ToString());
 
             var result = _carRepository.Insert(car);
 
@@ -47,6 +43,16 @@ namespace RESTFull.Controllers
                 return BadRequest();
 
             return Ok(result);
+        }
+
+        [AcceptVerbs("POST")]
+        [Route("list")]
+        public IHttpActionResult List(CarCriteria carCriteria)
+        {
+            if (carCriteria == null)
+                return BadRequest(GeneralTextResource.InvalidParameter.ToString());
+
+            return Ok(_carRepository.List(carCriteria, new string[] { "Name" }));
         }
     }
 }
